@@ -1,10 +1,9 @@
 # SPDX-FileCopyrightText: © 2024 Tiny Tapeout
-# SPDX-License-Identifier: Apache-2.0
-
+# SPDX-License-Identifier: MIT
+#imnport the coco functionality
 import cocotb
 from cocotb.clock import Clock
 from cocotb.triggers import ClockCycles
-
 
 prbs_size=31 #Size of the LSFR
 #Fill two lists with 0's
@@ -38,7 +37,7 @@ async def test_project(dut):
     clock = Clock(dut.clk, 10, units="us")
     #Start the clock
     cocotb.start_soon(clock.start())
- # Run through reset sequence.  Start low, go high, go back to low. The test begins when the reset goes low.
+# Run through reset sequence.  Start low, go high, go back to low. The test begins when the reset goes low.
     dut._log.info("Reset")
     #Set inputs for enable, ui_in and uio_in
     dut.ena.value = 1
